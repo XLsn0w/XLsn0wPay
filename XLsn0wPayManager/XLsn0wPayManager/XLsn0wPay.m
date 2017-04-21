@@ -1,7 +1,6 @@
 
 #import "XLsn0wPay.h"
 
-
 /**
  *  此处必须保证在Info.plist 中的 URL Types 的 Identifier 对应一致
  */
@@ -18,12 +17,13 @@
 // 添加了 URL Types 但信息不全
 #define addURLSchemes(URLTypes) [NSString stringWithFormat:@"请先在Info.plist对应的 URLTypes 添加 %@ 对应的 URL Schemes", URLTypes]
 
+@interface XLsn0wPay () <WXApiDelegate>
 
-@interface XLsn0wPay ()<WXApiDelegate>
 // 支付结果缓存回调
-@property (nonatomic,copy) XLsn0wPayResultCallBack callBack;
+@property (nonatomic, copy) XLsn0wPayResultCallBack callBack;
 // 缓存appScheme
-@property (nonatomic,strong)NSMutableDictionary *appSchemeDict;
+@property (nonatomic, strong)NSMutableDictionary *appSchemeDict;
+
 @end
 
 @implementation XLsn0wPay
