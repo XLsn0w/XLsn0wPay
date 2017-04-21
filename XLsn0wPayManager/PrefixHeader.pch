@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  XLsn0wPayManager
+//
+//  Created by XLsn0w on 2017/4/21.
+//  Copyright © 2017年 XLsn0w. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <AlipaySDK/AlipaySDK.h>
+#import "XLsn0wPay.h"
+
+#endif /* PrefixHeader_pch */
