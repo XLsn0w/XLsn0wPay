@@ -14,49 +14,35 @@
 
 @implementation AppDelegate
 
-/**
- *  @author gitKong
- *
- *  最老的版本，最好也写上
- */
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
-    return [XLsn0wPayManager handleOpenURL:url];
-}
-/**
- *  @author gitKong
- *
- *  iOS 9.0 之前 会调用
- */
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
-    return [XLsn0wPayManager handleOpenURL:url];
-}
-/**
- *  @author gitKong
- *
- *  iOS 9.0 以上（包括iOS9.0）
- */
-
-- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options{
-    
-    return [XLsn0wPayManager handleOpenURL:url];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    // Override point for customization after application launch.
+
+    //注册微信支付&支付宝SDK
     [XLsn0wPayManager registerWeChatWithAlipay];
     
     return YES;
 }
 
+#pragma mark - 微信支付&支付宝SDK
+//最老的版本，最好也写上
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    return [XLsn0wPayManager handleOpenURL:url];
+}
 
+//iOS 9.0 之前 会调用
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    return [XLsn0wPayManager handleOpenURL:url];
+}
 
-//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    // Override point for customization after application launch.
-//    return YES;
-//}
+//iOS 9.0 以上（包括iOS9.0）
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options{
+    
+    return [XLsn0wPayManager handleOpenURL:url];
+}
 
+#pragma mark - 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

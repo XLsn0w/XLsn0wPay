@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351B263C1EB097D0001DE80D /* XLsn0wPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 351B263B1EB097D0001DE80D /* XLsn0wPay.m */; };
 		355DD0D01EA99A0800B5B240 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0CF1EA99A0800B5B240 /* main.m */; };
 		355DD0D31EA99A0800B5B240 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0D21EA99A0800B5B240 /* AppDelegate.m */; };
 		355DD0D61EA99A0800B5B240 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0D51EA99A0800B5B240 /* ViewController.m */; };
@@ -39,10 +40,11 @@
 		355DD1731EA99F5A00B5B240 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 355DD16E1EA99F5A00B5B240 /* README.txt */; };
 		355DD1781EA9A2AA00B5B240 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */; };
 		355DD17A1EA9A2B200B5B240 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1791EA9A2B200B5B240 /* Security.framework */; };
-		355DD1871EA9CD1800B5B240 /* XLsn0wPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD1861EA9CD1800B5B240 /* XLsn0wPay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		351B263A1EB097D0001DE80D /* XLsn0wPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wPay.h; sourceTree = "<group>"; };
+		351B263B1EB097D0001DE80D /* XLsn0wPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wPay.m; sourceTree = "<group>"; };
 		355DD0CB1EA99A0800B5B240 /* XLsn0wPayManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLsn0wPayManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		355DD0CF1EA99A0800B5B240 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		355DD0D11EA99A0800B5B240 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -166,8 +168,6 @@
 		355DD1711EA99F5A00B5B240 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		355DD1791EA9A2B200B5B240 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		355DD1851EA9CD1800B5B240 /* XLsn0wPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wPay.h; sourceTree = "<group>"; };
-		355DD1861EA9CD1800B5B240 /* XLsn0wPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wPay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +198,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351B26391EB097D0001DE80D /* XLsn0wPay */ = {
+			isa = PBXGroup;
+			children = (
+				351B263A1EB097D0001DE80D /* XLsn0wPay.h */,
+				351B263B1EB097D0001DE80D /* XLsn0wPay.m */,
+			);
+			path = XLsn0wPay;
+			sourceTree = "<group>";
+		};
 		355DD0C21EA99A0800B5B240 = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +227,9 @@
 		355DD0CD1EA99A0800B5B240 /* XLsn0wPayManager */ = {
 			isa = PBXGroup;
 			children = (
-				355DD17D1EA9B1D100B5B240 /* XLsn0wPayManager */,
 				355DD16C1EA99F5A00B5B240 /* WeChatOpenSDK1.7.7 */,
 				355DD0E61EA99CB700B5B240 /* AlipaySDK_15.3.3 */,
+				351B26391EB097D0001DE80D /* XLsn0wPay */,
 				355DD0E51EA99A2100B5B240 /* UI */,
 				355DD0CE1EA99A0800B5B240 /* Supporting Files */,
 			);
@@ -400,15 +409,6 @@
 			path = WeChatOpenSDK1.7.7;
 			sourceTree = "<group>";
 		};
-		355DD17D1EA9B1D100B5B240 /* XLsn0wPayManager */ = {
-			isa = PBXGroup;
-			children = (
-				355DD1851EA9CD1800B5B240 /* XLsn0wPay.h */,
-				355DD1861EA9CD1800B5B240 /* XLsn0wPay.m */,
-			);
-			path = XLsn0wPayManager;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,8 +485,8 @@
 			files = (
 				355DD1511EA99CB800B5B240 /* RSADataVerifier.m in Sources */,
 				355DD14F1EA99CB800B5B240 /* openssl_wrapper.m in Sources */,
+				351B263C1EB097D0001DE80D /* XLsn0wPay.m in Sources */,
 				355DD14D1EA99CB800B5B240 /* base64.m in Sources */,
-				355DD1871EA9CD1800B5B240 /* XLsn0wPay.m in Sources */,
 				355DD1491EA99CB800B5B240 /* APAuthV2Info.m in Sources */,
 				355DD14E1EA99CB800B5B240 /* NSDataEx.m in Sources */,
 				355DD14C1EA99CB800B5B240 /* Order.m in Sources */,
