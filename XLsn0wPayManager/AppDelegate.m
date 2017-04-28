@@ -18,7 +18,7 @@
     // Override point for customization after application launch.
 
     //注册微信支付&支付宝SDK
-    [XLsn0wPayManager registerWeChatWithAlipay];
+    [XLsn0wPayManager registerWeChatAppIDWithAlipayURLSchemes];
     
     return YES;
 }

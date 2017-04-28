@@ -1,5 +1,4 @@
 
-
 #import <Foundation/Foundation.h>
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
@@ -27,7 +26,7 @@ typedef void(^XLsn0wPayResultCallBack)(XLsn0wPayResult payResult, NSString *erro
 /**
  *  注册App，需要在 didFinishLaunchingWithOptions 中调用
  */
-- (void)registerWeChatWithAlipay;
+- (void)registerWeChatAppIDWithAlipayURLSchemes;
 
 /**
  *  @author gitKong

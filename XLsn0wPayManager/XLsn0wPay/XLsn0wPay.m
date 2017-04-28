@@ -1,6 +1,5 @@
 
 #import "XLsn0wPay.h"
-
 /**
  *  此处必须保证在Info.plist 中的 URL Types 的 Identifier 对应一致
  */
@@ -21,8 +20,8 @@
 
 // 支付结果缓存回调
 @property (nonatomic, copy) XLsn0wPayResultCallBack callBack;
-// 缓存appScheme
-@property (nonatomic, strong)NSMutableDictionary *appSchemeDict;
+// 保存URL_Schemes到字典里面
+@property (nonatomic, strong) NSMutableDictionary *URL_Schemes_Dic;
 
 @end
 
@@ -90,28 +89,33 @@
     }
 }
 
-- (void)registerWeChatWithAlipay {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSArray *urlTypes = dict[@"CFBundleURLTypes"];
-    NSAssert(urlTypes, addURLTypes);
+- (void)registerWeChatAppIDWithAlipayURLSchemes {
+    NSString *Info_plist_path = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    NSDictionary *Info_plist_dic = [NSDictionary dictionaryWithContentsOfFile:Info_plist_path];
+    NSArray *URL_Types_Array = Info_plist_dic[@"CFBundleURLTypes"];
+    NSAssert(URL_Types_Array, addURLTypes);
     
-    for (NSDictionary *urlTypeDict in urlTypes) {
-        NSString *urlName = urlTypeDict[@"CFBundleURLName"];
-        NSArray *urlSchemes = urlTypeDict[@"CFBundleURLSchemes"];
-        NSAssert(urlSchemes.count, addURLSchemes(urlName));
+    for (NSDictionary *URL_Type_Dic in URL_Types_Array) {
+        NSString *URL_Name = URL_Type_Dic[@"CFBundleURLName"];
+        NSArray *URL_Schemes_Array = URL_Type_Dic[@"CFBundleURLSchemes"];
+        NSAssert(URL_Schemes_Array.count, addURLSchemes(URL_Name));
         // 一般对应只有一个
-        NSString *urlScheme = urlSchemes.lastObject;
-        if ([urlName isEqualToString:WeChat_URLTypesIdentifier]) {
-            [self.appSchemeDict setValue:urlScheme forKey:WeChat_URLTypesIdentifier];
-            // 注册微信
-            [WXApi registerApp:urlScheme];
-        }
-        else if ([urlName isEqualToString:Alipay_URLTypesIdentifier]){
+        NSString *URL_Schemes = URL_Schemes_Array.lastObject;
+        
+        if ([URL_Name isEqualToString:WeChat_URLTypesIdentifier]) {//微信支付
+            [self.URL_Schemes_Dic setValue:URL_Schemes forKey:WeChat_URLTypesIdentifier];
+            // 注册微信 appid 微信开发者ID即 WeChat URL Schemes
+            NSLog(@"WeChat_URL_Schemes=appid 微信开发者ID= %@", URL_Schemes);
+            [WXApi registerApp:URL_Schemes];
+            
+        } else if ([URL_Name isEqualToString:Alipay_URLTypesIdentifier]){//支付宝
             // 保存支付宝scheme，以便发起支付使用
-            [self.appSchemeDict setValue:urlScheme forKey:Alipay_URLTypesIdentifier];
-        }
-        else{
+            //注意：这里的URL Schemes，在实际商户的app中要填写独立的scheme，建议跟商户的app有一定的标示度，
+            //要做到和其他的商户app不重复，否则可能会导致支付宝返回的结果无法正确跳回商户app。
+            NSLog(@"Alipay_URL_Schemes= %@", URL_Schemes);
+            [self.URL_Schemes_Dic setValue:URL_Schemes forKey:Alipay_URLTypesIdentifier];
+            
+        } else{
             
         }
     }
@@ -124,15 +128,15 @@
     // 发起支付
     if ([order isKindOfClass:[PayReq class]]) {
         // 微信
-        NSAssert(self.appSchemeDict[WeChat_URLTypesIdentifier], addURLSchemes(WeChat_URLTypesIdentifier));
+        NSAssert(self.URL_Schemes_Dic[WeChat_URLTypesIdentifier], addURLSchemes(WeChat_URLTypesIdentifier));
         
         [WXApi sendReq:(PayReq *)order];
     }
     else if ([order isKindOfClass:[NSString class]]){
         // 支付宝
         NSAssert(![order isEqualToString:@""], orderMessage_nil);
-        NSAssert(self.appSchemeDict[Alipay_URLTypesIdentifier], addURLSchemes(Alipay_URLTypesIdentifier));
-        [[AlipaySDK defaultService] payOrder:(NSString *)order fromScheme:self.appSchemeDict[Alipay_URLTypesIdentifier] callback:^(NSDictionary *resultDic){
+        NSAssert(self.URL_Schemes_Dic[Alipay_URLTypesIdentifier], addURLSchemes(Alipay_URLTypesIdentifier));
+        [[AlipaySDK defaultService] payOrder:(NSString *)order fromScheme:self.URL_Schemes_Dic[Alipay_URLTypesIdentifier] callback:^(NSDictionary *resultDic){
             NSString *resultStatus = resultDic[@"resultStatus"];
             NSString *errStr = resultDic[@"memo"];
             XLsn0wPayResult errorCode = XLsn0wPayResultSuccess;
@@ -187,11 +191,11 @@
 
 #pragma mark -- Setter & Getter
 
-- (NSMutableDictionary *)appSchemeDict{
-    if (_appSchemeDict == nil) {
-        _appSchemeDict = [NSMutableDictionary dictionary];
+- (NSMutableDictionary *)URL_Schemes_Dic {
+    if (_URL_Schemes_Dic == nil) {
+        _URL_Schemes_Dic = [NSMutableDictionary dictionary];
     }
-    return _appSchemeDict;
+    return _URL_Schemes_Dic;
 }
 
 @end
