@@ -1,8 +1,28 @@
 
-
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface QRCodeImage : UIImage
+typedef NSUInteger CORRECTIONLEVEL;
+
+NS_ENUM(CORRECTIONLEVEL) {
+    HIGH = 1,
+    MEDIUM = 2,
+    LOW = 3
+};
+    
+@interface QRCodeImager : UIImage
+
+
+/**
+ 生成默认黑色二维码
+
+ @param message <#message description#>
+ @param headImage <#headImage description#>
+ @param correctionLevel <#correctionLevel description#>
+ @param sideLength <#sideLength description#>
+ @return <#return value description#>
+ */
++ (UIImage *)imageWithQRMessage:(NSString *)message headImage:(UIImage *)headImage inputCorrectionLevel:(CORRECTIONLEVEL)correctionLevel sideLength:(CGFloat)sideLength;
 
 /**
  *  1.生成一个二维码
@@ -12,7 +32,7 @@
  *
  *  @return <#return value description#>
  */
-+ (QRCodeImage *_Nonnull)codeImageWithString:(NSString *_Nullable)string
++ (QRCodeImager *_Nonnull)codeImageWithString:(NSString *_Nullable)string
                                         size:(CGFloat)width;
 
 /**
@@ -24,7 +44,7 @@
  *
  *  @return <#return value description#>
  */
-+ (QRCodeImage *_Nonnull)codeImageWithString:(NSString *_Nullable)string
++ (QRCodeImager *_Nonnull)codeImageWithString:(NSString *_Nullable)string
                                         size:(CGFloat)width
                                        color:(UIColor *_Nullable)color;
 /**
@@ -38,7 +58,7 @@
  *
  *  @return <#return value description#>
  */
-+ (QRCodeImage *_Nonnull)codeImageWithString:(NSString *_Nullable)string
++ (QRCodeImager *_Nonnull)codeImageWithString:(NSString *_Nullable)string
                                         size:(CGFloat)width
                                        color:(UIColor *_Nullable)color
                                         icon:(UIImage *_Nullable)icon

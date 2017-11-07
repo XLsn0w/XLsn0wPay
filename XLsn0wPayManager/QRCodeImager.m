@@ -1,22 +1,131 @@
 
 
-#import "QRCodeImage.h"
+#import "QRCodeImager.h"
 
-@implementation QRCodeImage
+@implementation QRCodeImager
 
-+ (QRCodeImage *)codeImageWithString:(NSString *)string
++ (UIImage *)imageWithQRMessage:(NSString *)message headImage:(UIImage *)headImage inputCorrectionLevel:(CORRECTIONLEVEL)correctionLevel sideLength:(CGFloat)sideLength {
+    
+    // 准备滤镜
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    
+    //  设置默认值
+    [filter setDefaults];
+    
+    //  生成要显示的字符串数据
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [filter setValue:data forKeyPath:@"inputMessage"];
+    
+    switch (correctionLevel) {
+        case HIGH:
+            [filter setValue:@"H" forKeyPath:@"inputCorrectionLevel"];
+            break;
+        case MEDIUM:
+            [filter setValue:@"Q" forKeyPath:@"inputCorrectionLevel"];
+            break;
+        case LOW:
+            [filter setValue:@"M" forKeyPath:@"inputCorrectionLevel"];
+            break;
+            
+        default:
+            break;
+    }
+    
+    // 输出
+    CIImage *coreImage = [filter outputImage];
+    
+    //  1. 要把图像无损放大
+    UIImage *QRImage = [self imageWithCIImage:coreImage andSize:CGSizeMake(sideLength, sideLength)];
+    
+    //  2. 要合成头像
+    CGSize headSize = CGSizeMake(sideLength * 0.30, sideLength * 0.30);
+    
+    UIImage *QRCardImage = [self imageWithBackgroundImage:QRImage centerImage:headImage centerImageSize:headSize];
+    
+    return QRCardImage;
+    
+}
+
+//  将CIImage转换成指定大小的UIImage
++ (UIImage *)imageWithCIImage:(CIImage *)coreImage andSize:(CGSize)size {
+    
+    //1. CIImage 转换成 CGImage(CGImageRef)
+    CIContext *context = [CIContext contextWithOptions:nil];
+    
+    CGImageRef originCGImage = [context createCGImage:coreImage fromRect:coreImage.extent];
+    
+    //2. 创建一个图形上下文 Bitmap
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+    
+    CGContextRef bitmapCtx = CGBitmapContextCreate(NULL, size.width, size.height, 8, 0, cs, kCGImageAlphaNone);
+    
+    //3. 将CGImage图片渲染到新的图形上下文中
+    CGContextSetInterpolationQuality(bitmapCtx, kCGInterpolationNone);
+    
+    // 在图形上下文中把图片画出来
+    CGRect newRect = CGRectMake(0, 0, size.width, size.height);
+    
+    CGContextDrawImage(bitmapCtx, newRect, originCGImage);
+    
+    //4. 取图像
+    CGImageRef QRImage = CGBitmapContextCreateImage(bitmapCtx);
+    
+    // 释放
+    CGColorSpaceRelease(cs);
+    
+    CGImageRelease(originCGImage);
+    
+    CGContextRelease(bitmapCtx);
+    
+    
+    return [UIImage imageWithCGImage:QRImage];
+    
+}
+
++ (UIImage *)imageWithBackgroundImage:(UIImage *)backgroundImage centerImage:(UIImage *)centerImage centerImageSize:(CGSize)centerSize{
+    
+    // 开始图形上下文
+    UIGraphicsBeginImageContext(backgroundImage.size);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGContextSetInterpolationQuality(ctx, kCGInterpolationNone);
+    
+    // 先画背景
+    [backgroundImage drawAtPoint:CGPointZero];
+    
+    // 再画头像
+    CGFloat headW = centerSize.width;
+    CGFloat headH = centerSize.height;
+    CGFloat headX = (backgroundImage.size.width - headW) * 0.5;
+    CGFloat headY = (backgroundImage.size.height - headH) * 0.5;
+    
+    [centerImage drawInRect:CGRectMake(headX, headY, headW, headH)];
+    
+    // 取图像
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+    
+}
+
+
++ (QRCodeImager *)codeImageWithString:(NSString *)string
                                 size:(CGFloat)width
 {
-    CIImage *ciImage = [QRCodeImage createQRForString:string];
+    CIImage *ciImage = [QRCodeImager createQRForString:string];
     if (ciImage) {
-        return [QRCodeImage createNonInterpolatedUIImageFormCIImage:ciImage
+        return [QRCodeImager createNonInterpolatedUIImageFormCIImage:ciImage
                                                                size:width];
     } else {
         return nil;
     }
 }
 
-+ (QRCodeImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image
++ (QRCodeImager *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image
                                                     size:(CGFloat)size {
     
     CGRect extent = CGRectIntegral(image.extent);
@@ -43,7 +152,7 @@
     // 3.清理
     CGContextRelease(bitmapRef);
     CGImageRelease(bitmapImage);
-    return (QRCodeImage*)[UIImage imageWithCGImage:scaledImage];
+    return (QRCodeImager *)[UIImage imageWithCGImage:scaledImage];
 }
 
 + (CIImage *)createQRForString:(NSString *)qrString {
@@ -63,13 +172,13 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     free((void*)data);
 }
 
-+ (QRCodeImage *_Nonnull)codeImageWithString:(NSString *_Nullable)string
++ (QRCodeImager *_Nonnull)codeImageWithString:(NSString *_Nullable)string
                                         size:(CGFloat)width
                                        color:(UIColor *_Nullable)color;
 {
     
     
-    QRCodeImage *image = [QRCodeImage codeImageWithString:string size:width];
+    QRCodeImager *image = [QRCodeImager codeImageWithString:string size:width];
     
     const CGFloat *components = CGColorGetComponents(color.CGColor);
     CGFloat red     = components[0]*255;
@@ -124,7 +233,7 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
                                         true,
                                         kCGRenderingIntentDefault);
     CGDataProviderRelease(dataProvider);
-    QRCodeImage* resultUIImage = (QRCodeImage*)[UIImage imageWithCGImage:imageRef];
+    QRCodeImager *resultUIImage = (QRCodeImager *)[UIImage imageWithCGImage:imageRef];
     
     // 4.释放
     CGImageRelease(imageRef);
@@ -134,12 +243,12 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     return resultUIImage;
 }
 
-+ (QRCodeImage *_Nonnull)codeImageWithString:(NSString *_Nullable)string
++ (QRCodeImager *_Nonnull)codeImageWithString:(NSString *_Nullable)string
                                         size:(CGFloat)width
                                        color:(UIColor *_Nullable)color
                                         icon:(UIImage *_Nullable)icon
                                     iconWidth:(CGFloat)iconWidth {
-    QRCodeImage *bgImage = [QRCodeImage codeImageWithString:string
+    QRCodeImager *bgImage = [QRCodeImager codeImageWithString:string
                                                        size:width
                                                       color:color];
     UIGraphicsBeginImageContext(bgImage.size);
@@ -151,7 +260,7 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     
     UIImage *newImage =  UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return (QRCodeImage *)newImage;
+    return (QRCodeImager *)newImage;
 }
 
 

@@ -11,8 +11,7 @@
 #import "APAuthV2Info.h"
 #import "RSADataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import "QRCodeImage.h"
-#import "QRCoder.h"
+#import "QRCodeImager.h"
 
 @interface ViewController ()
 
@@ -25,9 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor grayColor];
     
     
-    QRCodeImage *qrCodeImage = [QRCodeImage codeImageWithString:@"https://github.com/xlsn0w"
+    QRCodeImager *qrCodeImage = [QRCodeImager codeImageWithString:@"https://github.com/xlsn0w"
                                                            size:200
                                                           color:[UIColor blackColor]
                                                            icon:[UIImage imageNamed:@"XLsn0w"]
@@ -38,7 +38,7 @@
     
     
     
-    UIImage *QRImage = [QRCoder imageWithQRMessage:@"https://github.com/xlsn0w"
+    UIImage *QRImage = [QRCodeImager imageWithQRMessage:@"https://github.com/xlsn0w"
                                             headImage:[UIImage imageNamed:@"XLsn0w"]
                                  inputCorrectionLevel:LOW
                                            sideLength:self.qrcode.bounds.size.width];
@@ -46,8 +46,39 @@
     self.qrcode.image = QRImage;
 }
 
-- (IBAction)wechatpay:(id)sender {
+/**--->实际项目代码
+NSString *url = [NSString stringWithFormat:@"%@/api/parkOrder/payParkCost", kHTTP];
+NSLog(@"微信支付___URL=== %@", url);
+[XLNetworkManager POST:url token:nil params:@{@"platform":@(2), @"orderId":@(orderId)} success:^(NSURLSessionDataTask *task, NSDictionary *JSONDictionary, NSString *JSONString) {
+    NSLog(@"%@", JSONString);
     
+    NSData *JSONData = [[JSONDictionary objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *JSONDic = [NSJSONSerialization JSONObjectWithData:JSONData
+                                                            options:NSJSONReadingMutableContainers
+                                                              error:&error];
+    NSLog(@"微信支付args=== %@", JSONDic);
+    
+    PayReq *req = [[PayReq alloc] init];
+    req.openID = [JSONDic objectForKey:@"appid"];//AppID
+    req.partnerId = [JSONDic objectForKey:@"partnerid"];
+    req.prepayId = [JSONDic objectForKey:@"prepayid"];
+    req.nonceStr = [JSONDic objectForKey:@"noncestr"];
+    req.timeStamp = [[JSONDic objectForKey:@"timestamp"] intValue];
+    req.package = [JSONDic objectForKey:@"package"];
+    req.sign = [JSONDic objectForKey:@"sign"];
+    
+    if ([WXApi isWXAppInstalled] == YES) {
+        [WXApi sendReq:req];
+    } else {
+        [XLsn0wShow showCenterWithText:@"微信未安装"];
+    }
+    
+} failure:^(NSURLSessionDataTask *task, NSError *error, NSInteger statusCode, NSString *requestFailedReason) {
+    NSLog(@"error= %@", error);
+}];
+*/
+- (IBAction)wechatpay:(id)sender {
     ///实际项目里面partnerId prepayId package nonceStr timeStamp sign 都是从服务器后台获取赋值给req的属性即可
     PayReq *req = [[PayReq alloc] init];
     req.partnerId = @"10000100";
@@ -62,7 +93,97 @@
     }];
 }
 
-
+/*--->实际项目代码
+NSString *url = [NSString stringWithFormat:@"%@/api/parkOrder/getAlipayOrderInfo", kHTTP];
+NSLog(@"支付宝___URL=== %@", url);
+[XLNetworkManager POST:url token:nil params:@{@"platform":@(2), @"orderId":@(orderId)} success:^(NSURLSessionDataTask *task, NSDictionary *JSONDictionary, NSString *JSONString) {
+    NSLog(@"%@", JSONString);
+    
+    //将签名成功字符串格式化为订单字符串
+    NSString *orderSignString = [JSONDictionary objectForKey:@"data"];
+    
+    NSString *AppID = @"你的支付宝商户AppID";
+    if (AppID.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"缺少appId"
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    //调用支付的app注册在info.plist中对应的URL Schemes
+    NSString *URLSchemes = AppID;
+    
+    //如果加签成功，则继续执行支付
+    if (orderSignString != nil) {
+        
+        //调用支付结果开始支付
+        //服务器 把订单签名后的字符串穿过来 然后在info URL Schemes里面配置统一的字符串
+        //然后执行支付宝的 支付方法 在回调里面写支付结果的代码
+        [[AlipaySDK defaultService] payOrder:orderSignString fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
+            NSLog(@"resultDic=== %@", resultDic);
+            NSLog(@"memo=== %@", resultDic[@"memo"]);
+            NSLog(@"result=== %@", resultDic[@"result"]);
+            NSLog(@"resultStatus=== %@", resultDic[@"resultStatus"]);
+            NSInteger result = 0;
+            NSString *message = @"";
+            NSString *resultStatus = resultDic[@"resultStatus"];
+            
+            switch (resultStatus.integerValue) {
+                    
+                case 9000:    //支付成功
+                    result = 0;
+                    message = @"支付成功";
+                    break;
+                    
+                case 8000:
+                    result = 10;
+                    message = @"正在处理中，支付结果未知（有可能已经支付成功），请查询商户订单列表中订单的支付状态";
+                    break;
+                    
+                case 4000:
+                    result = 10;
+                    message = @"订单支付失败";
+                    break;
+                    
+                case 5000:
+                    result = 10;
+                    message = @"重复请求";
+                    break;
+                    
+                case 6001:
+                    result = 10;
+                    message = @"用户中途取消";
+                    break;
+                    
+                    
+                case 6002:
+                    result = 10;
+                    message = @"网络连接出错";
+                    break;
+                    
+                case 6004:
+                    result = 10;
+                    message = @"支付结果未知（有可能已经支付成功），请查询商户订单列表中订单的支付状态";
+                    break;
+                    
+                default:
+                    result = 10;
+                    message = @"支付失败";
+                    break;
+            }
+            
+            NSDictionary *messageAsDictionary = @{@"result":@(result), @"message":message};
+            [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:messageAsDictionary]
+                                        callbackId:callbackId];
+        }];
+    }
+    
+} failure:^(NSURLSessionDataTask *task, NSError *error, NSInteger statusCode, NSString *requestFailedReason) {
+    NSLog(@"error= %@", error);
+}];
+*/
 - (IBAction)alipay:(id)sender {
     ///拼接订单信息并且签名后的字符串
     ///实际项目里这段签名字符串是从服务器后台获取
@@ -72,79 +193,6 @@
     [XLsn0wPayManager xlsn0wPayWithOrder:orderMessage callBack:^(XLsn0wPayResult payResult, NSString *errorMessage) {
         NSLog(@"errCode = %zd,errStr = %@",payResult, errorMessage);
     }];
-}
-
-- (NSString *)generateTradeNO {
-    static int kNumber = 15;
-    
-    NSString *sourceStr = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    NSMutableString *resultStr = [[NSMutableString alloc] init];
-    srand((unsigned)time(0));
-    for (int i = 0; i < kNumber; i++)
-    {
-        unsigned index = rand() % [sourceStr length];
-        NSString *oneStr = [sourceStr substringWithRange:NSMakeRange(index, 1)];
-        [resultStr appendString:oneStr];
-    }
-    return resultStr;
-}
-
-
-- (NSString *)jumpToBizPay {
-    
-    
-    
-    //============================================================
-    /**
-     *  @author Clarence
-     *
-     *  来自微信文档数据
-     */
-    //============================================================
-    NSString *urlString   = @"http://wxpay.weixin.qq.com/pub_v2/app/app_pay.php?plat=ios";
-    //解析服务端返回json数据
-    NSError *error;
-    //加载一个NSURL对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    //将请求的url数据放到NSData对象中
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    if ( response != nil) {
-        NSMutableDictionary *dict = NULL;
-        //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
-        dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        
-        NSLog(@"url:%@",urlString);
-        if(dict != nil){
-            NSMutableString *retcode = [dict objectForKey:@"retcode"];
-            if (retcode.intValue == 0){
-                NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
-                
-                //调起微信支付
-                PayReq* req             = [[PayReq alloc] init];
-                req.partnerId           = [dict objectForKey:@"partnerid"];
-                req.prepayId            = [dict objectForKey:@"prepayid"];
-                req.nonceStr            = [dict objectForKey:@"noncestr"];
-                req.timeStamp           = stamp.intValue;
-                req.package             = [dict objectForKey:@"package"];
-                req.sign                = [dict objectForKey:@"sign"];
-                
-                
-                [XLsn0wPayManager xlsn0wPayWithOrder:req callBack:^(XLsn0wPayResult payResult, NSString *errorMessage) {
-                    NSLog(@"errCode = %zd,errStr = %@",payResult, errorMessage);
-                }];
-                //日志输出
-                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
-                return @"";
-            }else{
-                return [dict objectForKey:@"retmsg"];
-            }
-        }else{
-            return @"服务器返回错误，未获取到json对象";
-        }
-    }else{
-        return @"服务器返回错误";
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning {
