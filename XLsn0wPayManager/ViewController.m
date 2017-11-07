@@ -40,7 +40,7 @@
     
     UIImage *QRImage = [QRCodeImager imageWithQRMessage:@"https://github.com/xlsn0w"
                                             headImage:[UIImage imageNamed:@"XLsn0w"]
-                                 inputCorrectionLevel:LOW
+                                 inputCorrectionLevel:High
                                            sideLength:self.qrcode.bounds.size.width];
     
     self.qrcode.image = QRImage;

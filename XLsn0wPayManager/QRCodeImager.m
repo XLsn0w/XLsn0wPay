@@ -4,7 +4,7 @@
 
 @implementation QRCodeImager
 
-+ (UIImage *)imageWithQRMessage:(NSString *)message headImage:(UIImage *)headImage inputCorrectionLevel:(CORRECTIONLEVEL)correctionLevel sideLength:(CGFloat)sideLength {
++ (UIImage *)imageWithQRMessage:(NSString *)message headImage:(UIImage *)headImage inputCorrectionLevel:(QRCodeImagerInputCorrectionLevel)correctionLevel sideLength:(CGFloat)sideLength {
     
     // 准备滤镜
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
@@ -18,14 +18,11 @@
     [filter setValue:data forKeyPath:@"inputMessage"];
     
     switch (correctionLevel) {
-        case HIGH:
+        case High:
             [filter setValue:@"H" forKeyPath:@"inputCorrectionLevel"];
             break;
-        case MEDIUM:
-            [filter setValue:@"Q" forKeyPath:@"inputCorrectionLevel"];
-            break;
-        case LOW:
-            [filter setValue:@"M" forKeyPath:@"inputCorrectionLevel"];
+        case Low:
+            [filter setValue:@"L" forKeyPath:@"inputCorrectionLevel"];
             break;
             
         default:
