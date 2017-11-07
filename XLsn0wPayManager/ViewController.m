@@ -11,8 +11,12 @@
 #import "APAuthV2Info.h"
 #import "RSADataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "QRCodeImage.h"
+#import "QRCoder.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *qrcode;
 
 @end
 
@@ -21,6 +25,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    QRCodeImage *qrCodeImage = [QRCodeImage codeImageWithString:@"https://github.com/xlsn0w"
+                                                           size:200
+                                                          color:[UIColor blackColor]
+                                                           icon:[UIImage imageNamed:@"XLsn0w"]
+                                                      iconWidth:50];
+    UIImageView *qrImageView = [[UIImageView alloc] initWithImage:qrCodeImage];
+    qrImageView.center = self.view.center;
+//    [self.view addSubview:qrImageView];
+    
+    
+    
+    UIImage *QRImage = [QRCoder imageWithQRMessage:@"https://github.com/xlsn0w"
+                                            headImage:[UIImage imageNamed:@"XLsn0w"]
+                                 inputCorrectionLevel:LOW
+                                           sideLength:self.qrcode.bounds.size.width];
+    
+    self.qrcode.image = QRImage;
 }
 
 - (IBAction)wechatpay:(id)sender {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3091C0081FB15CE7005AB0BB /* QRCodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091C0061FB15CE6005AB0BB /* QRCodeImage.m */; };
+		3091C00A1FB15D5A005AB0BB /* XLsn0w.png in Resources */ = {isa = PBXBuildFile; fileRef = 3091C0091FB15D5A005AB0BB /* XLsn0w.png */; };
+		3091C00D1FB16049005AB0BB /* QRCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091C00C1FB16048005AB0BB /* QRCoder.m */; };
 		35478DF91EB2EF100004EBF0 /* XLsn0wPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35478DF81EB2EF100004EBF0 /* XLsn0wPay.m */; };
 		355DD0D01EA99A0800B5B240 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0CF1EA99A0800B5B240 /* main.m */; };
 		355DD0D31EA99A0800B5B240 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0D21EA99A0800B5B240 /* AppDelegate.m */; };
@@ -43,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3091C0061FB15CE6005AB0BB /* QRCodeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeImage.m; sourceTree = "<group>"; };
+		3091C0071FB15CE6005AB0BB /* QRCodeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeImage.h; sourceTree = "<group>"; };
+		3091C0091FB15D5A005AB0BB /* XLsn0w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XLsn0w.png; sourceTree = "<group>"; };
+		3091C00B1FB16048005AB0BB /* QRCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCoder.h; sourceTree = "<group>"; };
+		3091C00C1FB16048005AB0BB /* QRCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCoder.m; sourceTree = "<group>"; };
 		35478DF71EB2EF100004EBF0 /* XLsn0wPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wPay.h; sourceTree = "<group>"; };
 		35478DF81EB2EF100004EBF0 /* XLsn0wPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wPay.m; sourceTree = "<group>"; };
 		355DD0CB1EA99A0800B5B240 /* XLsn0wPayManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLsn0wPayManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +259,11 @@
 				355DD0D21EA99A0800B5B240 /* AppDelegate.m */,
 				355DD0D41EA99A0800B5B240 /* ViewController.h */,
 				355DD0D51EA99A0800B5B240 /* ViewController.m */,
+				3091C0071FB15CE6005AB0BB /* QRCodeImage.h */,
+				3091C0061FB15CE6005AB0BB /* QRCodeImage.m */,
+				3091C00B1FB16048005AB0BB /* QRCoder.h */,
+				3091C00C1FB16048005AB0BB /* QRCoder.m */,
+				3091C0091FB15D5A005AB0BB /* XLsn0w.png */,
 				355DD0D71EA99A0900B5B240 /* Main.storyboard */,
 				355DD0DA1EA99A0900B5B240 /* Assets.xcassets */,
 				355DD0DC1EA99A0900B5B240 /* LaunchScreen.storyboard */,
@@ -468,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3091C00A1FB15D5A005AB0BB /* XLsn0w.png in Resources */,
 				355DD0DE1EA99A0900B5B240 /* LaunchScreen.storyboard in Resources */,
 				355DD0DB1EA99A0900B5B240 /* Assets.xcassets in Resources */,
 				355DD1471EA99CB800B5B240 /* AlipaySDK.bundle in Resources */,
@@ -488,8 +502,10 @@
 				35478DF91EB2EF100004EBF0 /* XLsn0wPay.m in Sources */,
 				355DD14D1EA99CB800B5B240 /* base64.m in Sources */,
 				355DD1491EA99CB800B5B240 /* APAuthV2Info.m in Sources */,
+				3091C0081FB15CE7005AB0BB /* QRCodeImage.m in Sources */,
 				355DD14E1EA99CB800B5B240 /* NSDataEx.m in Sources */,
 				355DD14C1EA99CB800B5B240 /* Order.m in Sources */,
+				3091C00D1FB16049005AB0BB /* QRCoder.m in Sources */,
 				355DD0D61EA99A0800B5B240 /* ViewController.m in Sources */,
 				355DD1501EA99CB800B5B240 /* RSADataSigner.m in Sources */,
 				355DD0D31EA99A0800B5B240 /* AppDelegate.m in Sources */,
