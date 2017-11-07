@@ -9,3 +9,5 @@ XLsn0w WeChat And Alipay SDK Pay Manager
 通过我的组件 XLsn0wPayManager 类, 直接处理微信支持和支付宝支付功能 !
 
 有疑问可以邮件联系 :xlsn0w@outlook.com
+
+![](https://github.com/XLsn0w/XLsn0wPay/blob/master/XLsn0wPayManager/SimulatorScreenShot.png?raw=true)
