@@ -195,6 +195,11 @@ NSLog(@"支付宝___URL=== %@", url);
     }];
 }
 
+///银联支付
+- (IBAction)unionpay:(id)sender {
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

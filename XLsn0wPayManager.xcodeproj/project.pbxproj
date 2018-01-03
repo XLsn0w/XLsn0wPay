@@ -43,6 +43,7 @@
 		355DD1731EA99F5A00B5B240 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 355DD16E1EA99F5A00B5B240 /* README.txt */; };
 		355DD1781EA9A2AA00B5B240 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */; };
 		355DD17A1EA9A2B200B5B240 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1791EA9A2B200B5B240 /* Security.framework */; };
+		CD9E3B741FFCCA58008CA533 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +176,10 @@
 		355DD1711EA99F5A00B5B240 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		355DD1791EA9A2B200B5B240 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CD9E3B6F1FFCCA58008CA533 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		CD9E3B701FFCCA58008CA533 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
+		CD9E3B711FFCCA58008CA533 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
+		CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +201,7 @@
 				355DD15B1EA99DA600B5B240 /* CFNetwork.framework in Frameworks */,
 				355DD1591EA99D9B00B5B240 /* CoreMotion.framework in Frameworks */,
 				355DD14A1EA99CB800B5B240 /* libcrypto.a in Frameworks */,
+				CD9E3B741FFCCA58008CA533 /* libPaymentControl.a in Frameworks */,
 				355DD1481EA99CB800B5B240 /* AlipaySDK.framework in Frameworks */,
 				355DD14B1EA99CB800B5B240 /* libssl.a in Frameworks */,
 				355DD1721EA99F5A00B5B240 /* libWeChatSDK.a in Frameworks */,
@@ -234,6 +240,7 @@
 		355DD0CD1EA99A0800B5B240 /* XLsn0wPayManager */ = {
 			isa = PBXGroup;
 			children = (
+				CD9E3B6D1FFCCA58008CA533 /* UnionPaySDK_3.0.0 */,
 				355DD16C1EA99F5A00B5B240 /* WeChatOpenSDK1.7.7 */,
 				355DD0E61EA99CB700B5B240 /* AlipaySDK_15.3.3 */,
 				351B26391EB097D0001DE80D /* XLsn0wPay */,
@@ -418,6 +425,33 @@
 				355DD1711EA99F5A00B5B240 /* WXApiObject.h */,
 			);
 			path = WeChatOpenSDK1.7.7;
+			sourceTree = "<group>";
+		};
+		CD9E3B6D1FFCCA58008CA533 /* UnionPaySDK_3.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E3B6E1FFCCA58008CA533 /* inc */,
+				CD9E3B721FFCCA58008CA533 /* libs */,
+			);
+			path = UnionPaySDK_3.0.0;
+			sourceTree = "<group>";
+		};
+		CD9E3B6E1FFCCA58008CA533 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E3B6F1FFCCA58008CA533 /* UPPaymentControl.h */,
+				CD9E3B701FFCCA58008CA533 /* UPAPayPlugin.h */,
+				CD9E3B711FFCCA58008CA533 /* UPAPayPluginDelegate.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		CD9E3B721FFCCA58008CA533 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -641,6 +675,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XLsn0wPayManager/AlipaySDK_15.3.3",
 					"$(PROJECT_DIR)/XLsn0wPayManager/WeChatOpenSDK1.7.7",
+					"$(PROJECT_DIR)/XLsn0wPayManager/UnionPaySDK_3.0.0/libs",
 				);
 				OTHER_LDFLAGS = (
 					"-Objc",
@@ -669,6 +704,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XLsn0wPayManager/AlipaySDK_15.3.3",
 					"$(PROJECT_DIR)/XLsn0wPayManager/WeChatOpenSDK1.7.7",
+					"$(PROJECT_DIR)/XLsn0wPayManager/UnionPaySDK_3.0.0/libs",
 				);
 				OTHER_LDFLAGS = (
 					"-Objc",
