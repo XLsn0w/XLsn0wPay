@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rr-vc-FwX">
-                                <rect key="frame" x="157" y="377" width="100" height="30"/>
+                                <rect key="frame" x="157" y="339" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.17816320483128978" green="0.33930839585957229" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.94586522484549818" green="1" blue="0.91245496901958401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,11 +32,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7g4-J5-laK">
-                                <rect key="frame" x="82" y="28" width="250" height="250"/>
+                                <rect key="frame" x="97" y="43" width="220" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR1-Le-hgy">
-                                <rect key="frame" x="157" y="469" width="100" height="30"/>
+                                <rect key="frame" x="157" y="434" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15821599559957977" green="1" blue="0.088185319169806986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.04283803072258785" green="0.10341807606775888" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slj-G7-N57">
-                                <rect key="frame" x="157" y="559" width="100" height="30"/>
+                                <rect key="frame" x="157" y="526" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.17710452760201023" blue="0.15581265236683228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="银联支付">
@@ -54,6 +54,17 @@
                                 </state>
                                 <connections>
                                     <action selector="unionpay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kGT-Ps-7Hj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1R-B6-Use">
+                                <rect key="frame" x="157" y="622" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64052431592776893" green="0.43183293316817672" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Paypal支付">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="paypal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHe-Vm-otF"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -40,9 +40,43 @@
 				<string>9999</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>unionpay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>unionpayScheme</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>uppaysdk</string>
+		<string>uppaywallet</string>
+		<string>uppayx1</string>
+		<string>uppayx2</string>
+		<string>uppayx3</string>
+        <string>mqqOpensdkSSoLogin</string>
+        <string>mqzone</string>
+        <string>sinaweibo</string>
+        <string>alipayauth</string>
+        <string>alipay</string>
+        <string>safepay</string>
+        <string>mqq</string>
+        <string>mqqapi</string>
+        <string>mqqopensdkapiV3</string>
+        <string>mqqopensdkapiV2</string>
+        <string>mqqapiwallet</string>
+        <string>mqqwpa</string>
+        <string>mqqbrowser</string>
+        <string>wtloginmqq2</string>
+        <string>weixin</string>
+        <string>wechat</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

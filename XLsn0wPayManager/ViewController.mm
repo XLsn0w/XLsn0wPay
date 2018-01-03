@@ -13,6 +13,8 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "QRCodeImager.h"
 
+#import "UPPaymentControl.h"
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *qrcode;
@@ -196,7 +198,28 @@ NSLog(@"支付宝___URL=== %@", url);
 }
 
 ///银联支付
+
+/**招商银行借记卡：6226090000000048     手机号：18100000000     密码：111101     短信验证码：123456（先点获取验证码之后再输入）     证件类型：01身份证     证件号：510265790128303     姓名：张三
+ */
 - (IBAction)unionpay:(id)sender {
+    /**
+     *  支付接口
+     *
+     *  @param tn             订单信息
+     *  @param schemeStr      调用支付的app注册在info.plist中的scheme
+     *  @param mode           支付环境
+     *  @param viewController 启动支付控件的viewController
+     *  @return 返回成功失败
+     */
+
+    [[UPPaymentControl defaultControl] startPay:@"989657791968367788701"
+                                     fromScheme:@"unionpayScheme"
+                                           mode:@"01"
+                                 viewController:self];
+}
+
+///Paypal支付
+- (IBAction)paypal:(id)sender {
     
 }
 
