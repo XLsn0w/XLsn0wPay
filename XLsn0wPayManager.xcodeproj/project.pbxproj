@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		304409B01FB190FE0083552A /* SimulatorScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 304409AF1FB190FE0083552A /* SimulatorScreenShot.png */; };
 		3091C0081FB15CE7005AB0BB /* QRCodeImager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091C0061FB15CE6005AB0BB /* QRCodeImager.m */; };
 		3091C00A1FB15D5A005AB0BB /* XLsn0w.png in Resources */ = {isa = PBXBuildFile; fileRef = 3091C0091FB15D5A005AB0BB /* XLsn0w.png */; };
 		35478DF91EB2EF100004EBF0 /* XLsn0wPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35478DF81EB2EF100004EBF0 /* XLsn0wPay.m */; };
@@ -44,11 +43,11 @@
 		355DD1781EA9A2AA00B5B240 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */; };
 		355DD17A1EA9A2B200B5B240 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1791EA9A2B200B5B240 /* Security.framework */; };
 		CD9E3B741FFCCA58008CA533 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */; };
+		CDF2BADC1FFDD8520004D98C /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF2BADB1FFDD8520004D98C /* ScreenShot.png */; };
 		D8A14878A02CB8B838075199 /* libPods-XLsn0wPayManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		304409AF1FB190FE0083552A /* SimulatorScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SimulatorScreenShot.png; sourceTree = "<group>"; };
 		3091C0061FB15CE6005AB0BB /* QRCodeImager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeImager.m; sourceTree = "<group>"; };
 		3091C0071FB15CE6005AB0BB /* QRCodeImager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeImager.h; sourceTree = "<group>"; };
 		3091C0091FB15D5A005AB0BB /* XLsn0w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XLsn0w.png; sourceTree = "<group>"; };
@@ -182,6 +181,7 @@
 		CD9E3B701FFCCA58008CA533 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
 		CD9E3B711FFCCA58008CA533 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
 		CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		CDF2BADB1FFDD8520004D98C /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
 		D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wPayManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E239CA9371D8BDD9C2FA9749 /* Pods-XLsn0wPayManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wPayManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,7 +279,7 @@
 				355DD0DF1EA99A0900B5B240 /* Info.plist */,
 				355DD1521EA99CD400B5B240 /* PrefixHeader.pch */,
 				3091C0091FB15D5A005AB0BB /* XLsn0w.png */,
-				304409AF1FB190FE0083552A /* SimulatorScreenShot.png */,
+				CDF2BADB1FFDD8520004D98C /* ScreenShot.png */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -534,11 +534,11 @@
 			files = (
 				3091C00A1FB15D5A005AB0BB /* XLsn0w.png in Resources */,
 				355DD0DE1EA99A0900B5B240 /* LaunchScreen.storyboard in Resources */,
+				CDF2BADC1FFDD8520004D98C /* ScreenShot.png in Resources */,
 				355DD0DB1EA99A0900B5B240 /* Assets.xcassets in Resources */,
 				355DD1471EA99CB800B5B240 /* AlipaySDK.bundle in Resources */,
 				355DD0D91EA99A0900B5B240 /* Main.storyboard in Resources */,
 				355DD1731EA99F5A00B5B240 /* README.txt in Resources */,
-				304409B01FB190FE0083552A /* SimulatorScreenShot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

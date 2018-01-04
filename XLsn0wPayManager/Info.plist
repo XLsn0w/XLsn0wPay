@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
 	<string>XLsn0wPay</string>
 	<key>CFBundleExecutable</key>
@@ -60,22 +60,22 @@
 		<string>uppayx1</string>
 		<string>uppayx2</string>
 		<string>uppayx3</string>
-        <string>mqqOpensdkSSoLogin</string>
-        <string>mqzone</string>
-        <string>sinaweibo</string>
-        <string>alipayauth</string>
-        <string>alipay</string>
-        <string>safepay</string>
-        <string>mqq</string>
-        <string>mqqapi</string>
-        <string>mqqopensdkapiV3</string>
-        <string>mqqopensdkapiV2</string>
-        <string>mqqapiwallet</string>
-        <string>mqqwpa</string>
-        <string>mqqbrowser</string>
-        <string>wtloginmqq2</string>
-        <string>weixin</string>
-        <string>wechat</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqzone</string>
+		<string>sinaweibo</string>
+		<string>alipayauth</string>
+		<string>alipay</string>
+		<string>safepay</string>
+		<string>mqq</string>
+		<string>mqqapi</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqapiwallet</string>
+		<string>mqqwpa</string>
+		<string>mqqbrowser</string>
+		<string>wtloginmqq2</string>
+		<string>weixin</string>
+		<string>wechat</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

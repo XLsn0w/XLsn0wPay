@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ViewController.mm
 //  XLsn0wPayManager
 //
 //  Created by XLsn0w on 2017/4/21.
@@ -215,6 +215,8 @@ NSLog(@"支付宝___URL=== %@", url);
 ///银联支付
 
 /**招商银行借记卡：6226090000000048     手机号：18100000000     密码：111101     短信验证码：123456（先点获取验证码之后再输入）     证件类型：01身份证     证件号：510265790128303     姓名：张三
+ 
+ * ViewController必须支持Objective-C++ 即.mm
  */
 - (IBAction)unionpay:(id)sender {
     /**
@@ -253,6 +255,23 @@ NSLog(@"支付宝___URL=== %@", url);
     
 }
 
+///在viewDidLoad里面初始化PayPalConfiguration；
+- (void)initPayPalConfig {
+    self.payPalConfig = [[PayPalConfiguration alloc] init];
+    self.payPalConfig.merchantName = @"xx科技有限公司";//公司名称
+    self.payPalConfig.acceptCreditCards = NO;
+    self.payPalConfig.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
+}
+
+///支付页面的viewWillAppear里面代码，上线的时候注意修改；
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //[self SetNavigationStyle:NO];
+#warning ----------------上线的时候修改成正式环境----------------
+    // 开始与测试环境工作！当你准备好时，切换到paypalenvironmentproduction。
+    [PayPalMobile preconnectWithEnvironment:PayPalEnvironmentNoNetwork];
+}
+
 ///Paypal支付
 - (IBAction)paypal:(id)sender {
     PayPalPayment *payment = [[PayPalPayment alloc] init];
@@ -268,28 +287,64 @@ NSLog(@"支付宝___URL=== %@", url);
     
     //生成paypal控制器，并模态出来(push也行)
     //将之前生成的订单信息和paypal配置传进来，并设置订单VC为代理
-    PayPalPaymentViewController *paymentViewController =
-    [[PayPalPaymentViewController alloc] initWithPayment:payment                                                                                            configuration:self.payPalConfig                                                                                                  delegate:self];
-    
-    
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
+                                                                                                configuration:self.payPalConfig
+                                                                                                     delegate:self];
     //模态展示
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
 
+///调用PayPal支付界面
+//amount:金额
+//currencyCode:获取单位 比如：USD
+//shortDescription:商品标题 简短描述
+- (void)PayPalWithAmount:(NSString *)amount currencyCode:(NSString *)currencyCode shortDescription:(NSString *)shortDescription{
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    payment.amount = [[NSDecimalNumber alloc] initWithString:@"100"];
+    payment.currencyCode = currencyCode;
+    payment.shortDescription = @"购买商品购买商品购买商品";
+    payment.items = nil;  // if not including multiple items, then leave payment.items as nil
+    payment.paymentDetails = nil; // if not including payment details, then leave payment.paymentDetails as nil
+    payment.intent = PayPalPaymentIntentSale;
+    if (!payment.processable) {
+        NSLog(@"-------------");
+    }
+    
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment configuration:self.payPalConfig delegate:self];
+    [self presentViewController:paymentViewController animated:YES completion:nil];
+}
+
+
+///PayPalPaymentDelegate代理方法，支付成功和失败；
+#pragma mark - PayPalPaymentDelegate methods
 //订单支付完成后回调此方法
 - (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
-    NSLog(@"PayPal Payment Success!");
+    [self verifyCompletedPayment:completedPayment];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //用户取消支付回调此方法
 - (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
-    NSLog(@"PayPal Payment Canceled");
+    ///[self SHOWPrompttext:@"支付有误,请稍后再试"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+///给你的服务器发送支付成功、支付失败等信息请求
+- (void)verifyCompletedPayment:(PayPalPayment *)completedPayment {
+    // Send the entire confirmation dictionary
+    NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation options:0 error:nil];
+    [self setCartOrderNotifyWith:@"_order_id"];
+    NSLog(@"completedPayment.confirmation= %@", completedPayment.confirmation);
+    NSLog(@"confirmation= %@",confirmation);
+}
+
+- (void)setCartOrderNotifyWith:(NSString *)order_ids {
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.17816320483128978" green="0.33930839585957229" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.94586522484549818" green="1" blue="0.91245496901958401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="支付宝充值"/>
+                                <state key="normal" title="支付宝支付"/>
                                 <connections>
                                     <action selector="alipay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ktW-rz-zfS"/>
                                 </connections>
@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15821599559957977" green="1" blue="0.088185319169806986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.04283803072258785" green="0.10341807606775888" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="微信支付充值"/>
+                                <state key="normal" title="微信支付"/>
                                 <connections>
                                     <action selector="wechatpay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wWg-Qf-d40"/>
                                 </connections>
