@@ -15,19 +15,34 @@
 
 #import "UPPaymentControl.h"
 
-@interface ViewController ()
+#import "PayPalMobile.h"
+
+@interface ViewController () <PayPalPaymentDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *qrcode;
+
+@property(nonatomic, strong) PayPalConfiguration *payPalConfig;
 
 @end
 
 @implementation ViewController
+
+/// 真实交易环境-也就是上架之后的环境
+extern NSString * _Nonnull const PayPalEnvironmentProduction;
+/// 模拟环境-也就是沙盒环境
+extern NSString * _Nonnull const PayPalEnvironmentSandbox;
+/// 无网络连接环境-具体用处，咳咳，自行摸索
+extern NSString * _Nonnull const PayPalEnvironmentNoNetwork;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor grayColor];
     
+    
+    [PayPalMobile preconnectWithEnvironment:PayPalEnvironmentSandbox];
+    [self initPayPalConfiguration];
+
     
     QRCodeImager *qrCodeImage = [QRCodeImager codeImageWithString:@"https://github.com/xlsn0w"
                                                            size:200
@@ -218,9 +233,57 @@ NSLog(@"支付宝___URL=== %@", url);
                                  viewController:self];
 }
 
+- (void)initPayPalConfiguration {
+    //是否接受信用卡
+    _payPalConfig.acceptCreditCards = NO;
+    
+    //商家名称
+    _payPalConfig.merchantName = @"商家名";
+    
+    //商家隐私协议网址和用户授权网址-说实话这个没用到
+    _payPalConfig.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/privacy-full"];
+    _payPalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
+    
+
+    //paypal账号下的地址信息
+    _payPalConfig.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
+    
+    //配置语言环境
+    _payPalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
+    
+}
+
 ///Paypal支付
 - (IBAction)paypal:(id)sender {
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
     
+    //订单总额
+    payment.amount = [NSDecimalNumber decimalNumberWithString:@"100"];
+    
+    //货币类型-RMB是没用的
+    payment.currencyCode = @"USD";
+    
+    //订单描述
+    payment.shortDescription = @"Hipster clothing";
+    
+    //生成paypal控制器，并模态出来(push也行)
+    //将之前生成的订单信息和paypal配置传进来，并设置订单VC为代理
+    PayPalPaymentViewController *paymentViewController =
+    [[PayPalPaymentViewController alloc] initWithPayment:payment                                                                                            configuration:self.payPalConfig                                                                                                  delegate:self];
+    
+    
+    //模态展示
+    [self presentViewController:paymentViewController animated:YES completion:nil];
+}
+
+//订单支付完成后回调此方法
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
+    NSLog(@"PayPal Payment Success!");
+}
+
+//用户取消支付回调此方法
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
+    NSLog(@"PayPal Payment Canceled");
 }
 
 - (void)didReceiveMemoryWarning {

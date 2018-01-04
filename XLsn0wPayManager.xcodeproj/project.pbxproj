@@ -44,6 +44,7 @@
 		355DD1781EA9A2AA00B5B240 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */; };
 		355DD17A1EA9A2B200B5B240 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1791EA9A2B200B5B240 /* Security.framework */; };
 		CD9E3B741FFCCA58008CA533 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */; };
+		D8A14878A02CB8B838075199 /* libPods-XLsn0wPayManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,10 +177,13 @@
 		355DD1711EA99F5A00B5B240 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		355DD1791EA9A2B200B5B240 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CA26D84AD759D481F56A3923 /* Pods-XLsn0wPayManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wPayManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager.release.xcconfig"; sourceTree = "<group>"; };
 		CD9E3B6F1FFCCA58008CA533 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
 		CD9E3B701FFCCA58008CA533 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
 		CD9E3B711FFCCA58008CA533 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
 		CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wPayManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E239CA9371D8BDD9C2FA9749 /* Pods-XLsn0wPayManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wPayManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 				355DD1481EA99CB800B5B240 /* AlipaySDK.framework in Frameworks */,
 				355DD14B1EA99CB800B5B240 /* libssl.a in Frameworks */,
 				355DD1721EA99F5A00B5B240 /* libWeChatSDK.a in Frameworks */,
+				D8A14878A02CB8B838075199 /* libPods-XLsn0wPayManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +231,7 @@
 				355DD0CD1EA99A0800B5B240 /* XLsn0wPayManager */,
 				355DD0CC1EA99A0800B5B240 /* Products */,
 				355DD1531EA99D5900B5B240 /* Frameworks */,
+				DCAE96312BE93B2457A07A6A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -411,6 +417,7 @@
 				355DD1581EA99D9B00B5B240 /* CoreMotion.framework */,
 				355DD1561EA99D6400B5B240 /* libz.tbd */,
 				355DD1541EA99D5900B5B240 /* libc++.tbd */,
+				D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -454,6 +461,15 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
+		DCAE96312BE93B2457A07A6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E239CA9371D8BDD9C2FA9749 /* Pods-XLsn0wPayManager.debug.xcconfig */,
+				CA26D84AD759D481F56A3923 /* Pods-XLsn0wPayManager.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,9 +477,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 355DD0E21EA99A0900B5B240 /* Build configuration list for PBXNativeTarget "XLsn0wPayManager" */;
 			buildPhases = (
+				A6CE800ED72BEF1FA1E6999C /* [CP] Check Pods Manifest.lock */,
 				355DD0C71EA99A0800B5B240 /* Sources */,
 				355DD0C81EA99A0800B5B240 /* Frameworks */,
 				355DD0C91EA99A0800B5B240 /* Resources */,
+				D84EFE0E2487481ADFD6F171 /* [CP] Embed Pods Frameworks */,
+				88BC1D874FF758E5659B85AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -524,6 +543,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88BC1D874FF758E5659B85AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6CE800ED72BEF1FA1E6999C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XLsn0wPayManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D84EFE0E2487481ADFD6F171 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		355DD0C71EA99A0800B5B240 /* Sources */ = {
@@ -659,7 +729,9 @@
 		};
 		355DD0E31EA99A0900B5B240 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E239CA9371D8BDD9C2FA9749 /* Pods-XLsn0wPayManager.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 477CU24KAZ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -667,7 +739,10 @@
 					"$(PROJECT_DIR)/XLsn0wPayManager/AlipaySDK_15.3.3",
 				);
 				GCC_PREFIX_HEADER = XLsn0wPayManager/PrefixHeader.pch;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/XLsn0wPayManager/AlipaySDK_15.3.3\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/XLsn0wPayManager/AlipaySDK_15.3.3\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = XLsn0wPayManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -680,6 +755,7 @@
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xlsn0w.XLsn0wPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -688,7 +764,9 @@
 		};
 		355DD0E41EA99A0900B5B240 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA26D84AD759D481F56A3923 /* Pods-XLsn0wPayManager.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 477CU24KAZ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -696,7 +774,10 @@
 					"$(PROJECT_DIR)/XLsn0wPayManager/AlipaySDK_15.3.3",
 				);
 				GCC_PREFIX_HEADER = XLsn0wPayManager/PrefixHeader.pch;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/XLsn0wPayManager/AlipaySDK_15.3.3\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/XLsn0wPayManager/AlipaySDK_15.3.3\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = XLsn0wPayManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -709,6 +790,7 @@
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xlsn0w.XLsn0wPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";

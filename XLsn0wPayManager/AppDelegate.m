@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PayPalMobile.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,11 @@
 
     //注册微信支付&支付宝SDK
     [XLsn0wPayManager registerWeChatAppIDWithAlipayURLSchemes];
+    
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"你的真实交易模式ClientID",PayPalEnvironmentSandbox : @"你的测试模式ClientID"}];
+    
+  
+    
     
     return YES;
 }
