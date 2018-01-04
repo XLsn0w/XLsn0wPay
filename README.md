@@ -6,8 +6,11 @@
 
 ## 银联支付控件SDK接入指南: https://open.unionpay.com/ajweb/help/file/techFile?productId=3
 
+## Paypal 接入指南: https://developer.paypal.com/webapps/developer/docs/integration/mobile/ios-integration-guide/
+## Paypal demo: https://github.com/paypal/PayPal-iOS-SDK
+
 通过我的组件 XLsn0wPayManager 类, 直接处理微信支持和支付宝支付功能 !
 
-有疑问可以邮件联系 :xlsn0w@outlook.com
+# 有疑问可以邮件联系 : xlsn0w@outlook.com
 
 ![ScreenShot](https://github.com/XLsn0w/XLsn0wPay/blob/master/XLsn0wPayManager/ScreenShot.png?raw=true)
