@@ -13,4 +13,4 @@
 
 # 有疑问可以邮件联系 : xlsn0w@outlook.com
 
-![ScreenShot](https://github.com/XLsn0w/XLsn0wPay/blob/master/XLsn0wPayManager/ScreenShot.png?raw=true)
+![ScreenShot](https://github.com/XLsn0w/XLsn0wPay/blob/trunk/XLsn0wPayManager/ScreenShot.png?raw=true)
