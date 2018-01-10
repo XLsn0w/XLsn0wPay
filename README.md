@@ -10,6 +10,7 @@
 ## Paypal demo: https://github.com/paypal/PayPal-iOS-SDK
 
 <font color=red size=5>通过我的组件 XLsn0wPayManager 类, 直接处理微信支持和支付宝支付功能 !</font>
+<font color=red>内容</font>
 
 # 有疑问可以邮件联系 : xlsn0w@outlook.com
 
