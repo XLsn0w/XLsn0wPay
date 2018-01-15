@@ -15,14 +15,8 @@ NS_ENUM(QRCodeImagerInputCorrectionLevel) {
 
 /**
  生成默认黑色二维码
-
- @param message <#message description#>
- @param headImage <#headImage description#>
- @param correctionLevel <#correctionLevel description#>
- @param sideLength <#sideLength description#>
- @return <#return value description#>
  */
-+ (UIImage *)imageWithQRMessage:(NSString *)message headImage:(UIImage *)headImage inputCorrectionLevel:(QRCodeImagerInputCorrectionLevel)correctionLevel sideLength:(CGFloat)sideLength;
++ (UIImage *_Nullable)imageWithQRMessage:(NSString *_Nonnull)message headImage:(UIImage *_Nullable)headImage inputCorrectionLevel:(QRCodeImagerInputCorrectionLevel)correctionLevel sideLength:(CGFloat)sideLength;
 
 /**
  *  1.生成一个二维码

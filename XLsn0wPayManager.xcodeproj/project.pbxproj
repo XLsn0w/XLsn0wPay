@@ -11,8 +11,6 @@
 		3091C00A1FB15D5A005AB0BB /* XLsn0w.png in Resources */ = {isa = PBXBuildFile; fileRef = 3091C0091FB15D5A005AB0BB /* XLsn0w.png */; };
 		35478DF91EB2EF100004EBF0 /* XLsn0wPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35478DF81EB2EF100004EBF0 /* XLsn0wPay.m */; };
 		355DD0D01EA99A0800B5B240 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0CF1EA99A0800B5B240 /* main.m */; };
-		355DD0D31EA99A0800B5B240 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0D21EA99A0800B5B240 /* AppDelegate.m */; };
-		355DD0D61EA99A0800B5B240 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 355DD0D51EA99A0800B5B240 /* ViewController.mm */; };
 		355DD0D91EA99A0900B5B240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 355DD0D71EA99A0900B5B240 /* Main.storyboard */; };
 		355DD0DB1EA99A0900B5B240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 355DD0DA1EA99A0900B5B240 /* Assets.xcassets */; };
 		355DD0DE1EA99A0900B5B240 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 355DD0DC1EA99A0900B5B240 /* LaunchScreen.storyboard */; };
@@ -43,6 +41,8 @@
 		355DD1781EA9A2AA00B5B240 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */; };
 		355DD17A1EA9A2B200B5B240 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1791EA9A2B200B5B240 /* Security.framework */; };
 		CD9E3B741FFCCA58008CA533 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */; };
+		CDE735E5200C8936000A2C73 /* PayViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDE735E4200C8936000A2C73 /* PayViewController.mm */; };
+		CDE735E9200C8A1F000A2C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE735E8200C8A1F000A2C73 /* AppDelegate.m */; };
 		CDF2BADC1FFDD8520004D98C /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF2BADB1FFDD8520004D98C /* ScreenShot.png */; };
 		D8A14878A02CB8B838075199 /* libPods-XLsn0wPayManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */; };
 /* End PBXBuildFile section */
@@ -56,9 +56,6 @@
 		355DD0CB1EA99A0800B5B240 /* XLsn0wPayManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLsn0wPayManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		355DD0CF1EA99A0800B5B240 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		355DD0D11EA99A0800B5B240 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		355DD0D21EA99A0800B5B240 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		355DD0D41EA99A0800B5B240 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		355DD0D51EA99A0800B5B240 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		355DD0D81EA99A0900B5B240 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		355DD0DA1EA99A0900B5B240 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		355DD0DD1EA99A0900B5B240 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -181,6 +178,9 @@
 		CD9E3B701FFCCA58008CA533 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
 		CD9E3B711FFCCA58008CA533 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
 		CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		CDE735E3200C8936000A2C73 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		CDE735E4200C8936000A2C73 /* PayViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayViewController.mm; sourceTree = "<group>"; };
+		CDE735E8200C8A1F000A2C73 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CDF2BADB1FFDD8520004D98C /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
 		D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wPayManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E239CA9371D8BDD9C2FA9749 /* Pods-XLsn0wPayManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wPayManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,8 +249,7 @@
 				CD9E3B6D1FFCCA58008CA533 /* UnionPaySDK_3.0.0 */,
 				355DD16C1EA99F5A00B5B240 /* WeChatOpenSDK1.7.7 */,
 				355DD0E61EA99CB700B5B240 /* AlipaySDK_15.3.3 */,
-				351B26391EB097D0001DE80D /* XLsn0wPay */,
-				355DD0E51EA99A2100B5B240 /* UI */,
+				355DD0E51EA99A2100B5B240 /* AppDelegate */,
 				355DD0CE1EA99A0800B5B240 /* Supporting Files */,
 			);
 			path = XLsn0wPayManager;
@@ -264,24 +263,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		355DD0E51EA99A2100B5B240 /* UI */ = {
+		355DD0E51EA99A2100B5B240 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				355DD0D11EA99A0800B5B240 /* AppDelegate.h */,
-				355DD0D21EA99A0800B5B240 /* AppDelegate.m */,
-				355DD0D41EA99A0800B5B240 /* ViewController.h */,
-				355DD0D51EA99A0800B5B240 /* ViewController.mm */,
-				3091C0071FB15CE6005AB0BB /* QRCodeImager.h */,
-				3091C0061FB15CE6005AB0BB /* QRCodeImager.m */,
+				CDE735E8200C8A1F000A2C73 /* AppDelegate.m */,
+				355DD1521EA99CD400B5B240 /* PrefixHeader.pch */,
+				CDE735E7200C89D9000A2C73 /* PayViewController */,
+				CDE735E6200C89C8000A2C73 /* QRCodeImager */,
+				351B26391EB097D0001DE80D /* XLsn0wPay */,
 				355DD0D71EA99A0900B5B240 /* Main.storyboard */,
 				355DD0DA1EA99A0900B5B240 /* Assets.xcassets */,
 				355DD0DC1EA99A0900B5B240 /* LaunchScreen.storyboard */,
 				355DD0DF1EA99A0900B5B240 /* Info.plist */,
-				355DD1521EA99CD400B5B240 /* PrefixHeader.pch */,
 				3091C0091FB15D5A005AB0BB /* XLsn0w.png */,
 				CDF2BADB1FFDD8520004D98C /* ScreenShot.png */,
 			);
-			name = UI;
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 		355DD0E61EA99CB700B5B240 /* AlipaySDK_15.3.3 */ = {
@@ -461,6 +459,24 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
+		CDE735E6200C89C8000A2C73 /* QRCodeImager */ = {
+			isa = PBXGroup;
+			children = (
+				3091C0071FB15CE6005AB0BB /* QRCodeImager.h */,
+				3091C0061FB15CE6005AB0BB /* QRCodeImager.m */,
+			);
+			name = QRCodeImager;
+			sourceTree = "<group>";
+		};
+		CDE735E7200C89D9000A2C73 /* PayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CDE735E3200C8936000A2C73 /* PayViewController.h */,
+				CDE735E4200C8936000A2C73 /* PayViewController.mm */,
+			);
+			name = PayViewController;
+			sourceTree = "<group>";
+		};
 		DCAE96312BE93B2457A07A6A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,7 +520,7 @@
 				TargetAttributes = {
 					355DD0CA1EA99A0800B5B240 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 477CU24KAZ;
+						DevelopmentTeam = MS6RTU94VW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -607,10 +623,10 @@
 				355DD1491EA99CB800B5B240 /* APAuthV2Info.m in Sources */,
 				3091C0081FB15CE7005AB0BB /* QRCodeImager.m in Sources */,
 				355DD14E1EA99CB800B5B240 /* NSDataEx.m in Sources */,
+				CDE735E5200C8936000A2C73 /* PayViewController.mm in Sources */,
+				CDE735E9200C8A1F000A2C73 /* AppDelegate.m in Sources */,
 				355DD14C1EA99CB800B5B240 /* Order.m in Sources */,
-				355DD0D61EA99A0800B5B240 /* ViewController.mm in Sources */,
 				355DD1501EA99CB800B5B240 /* RSADataSigner.m in Sources */,
-				355DD0D31EA99A0800B5B240 /* AppDelegate.m in Sources */,
 				355DD0D01EA99A0800B5B240 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,7 +749,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 477CU24KAZ;
+				DEVELOPMENT_TEAM = MS6RTU94VW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XLsn0wPayManager/AlipaySDK_15.3.3",
@@ -768,7 +784,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 477CU24KAZ;
+				DEVELOPMENT_TEAM = MS6RTU94VW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XLsn0wPayManager/AlipaySDK_15.3.3",

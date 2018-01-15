@@ -1,31 +1,21 @@
-//
-//  ViewController.mm
-//  XLsn0wPayManager
-//
-//  Created by XLsn0w on 2017/4/21.
-//  Copyright © 2017年 XLsn0w. All rights reserved.
-//
 
-#import "ViewController.h"
+#import "PayViewController.h"
 #import "Order.h"
 #import "APAuthV2Info.h"
 #import "RSADataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import "QRCodeImager.h"
 
 #import "UPPaymentControl.h"
 
 #import "PayPalMobile.h"
 
-@interface ViewController () <PayPalPaymentDelegate>
-
-@property (weak, nonatomic) IBOutlet UIImageView *qrcode;
+@interface PayViewController () <PayPalPaymentDelegate>
 
 @property(nonatomic, strong) PayPalConfiguration *payPalConfig;
 
 @end
 
-@implementation ViewController
+@implementation PayViewController
 
 /// 真实交易环境-也就是上架之后的环境
 extern NSString * _Nonnull const PayPalEnvironmentProduction;
@@ -36,31 +26,9 @@ extern NSString * _Nonnull const PayPalEnvironmentNoNetwork;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor grayColor];
-    
-    
     [PayPalMobile preconnectWithEnvironment:PayPalEnvironmentSandbox];
     [self initPayPalConfiguration];
-
-    
-    QRCodeImager *qrCodeImage = [QRCodeImager codeImageWithString:@"https://github.com/xlsn0w"
-                                                           size:200
-                                                          color:[UIColor blackColor]
-                                                           icon:[UIImage imageNamed:@"XLsn0w"]
-                                                      iconWidth:50];
-    UIImageView *qrImageView = [[UIImageView alloc] initWithImage:qrCodeImage];
-    qrImageView.center = self.view.center;
-//    [self.view addSubview:qrImageView];
-    
-    
-    
-    UIImage *QRImage = [QRCodeImager imageWithQRMessage:@"https://github.com/xlsn0w"
-                                            headImage:[UIImage imageNamed:@"XLsn0w"]
-                                 inputCorrectionLevel:High
-                                           sideLength:self.qrcode.bounds.size.width];
-    
-    self.qrcode.image = QRImage;
 }
 
 /**--->实际项目代码
@@ -95,6 +63,7 @@ NSLog(@"微信支付___URL=== %@", url);
     NSLog(@"error= %@", error);
 }];
 */
+
 - (IBAction)wechatpay:(id)sender {
     ///实际项目里面partnerId prepayId package nonceStr timeStamp sign 都是从服务器后台获取赋值给req的属性即可
     PayReq *req = [[PayReq alloc] init];
