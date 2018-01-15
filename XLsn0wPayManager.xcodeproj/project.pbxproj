@@ -41,8 +41,8 @@
 		355DD1781EA9A2AA00B5B240 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1771EA9A2AA00B5B240 /* libsqlite3.tbd */; };
 		355DD17A1EA9A2B200B5B240 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355DD1791EA9A2B200B5B240 /* Security.framework */; };
 		CD9E3B741FFCCA58008CA533 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */; };
-		CDE735E5200C8936000A2C73 /* PayViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDE735E4200C8936000A2C73 /* PayViewController.mm */; };
-		CDE735E9200C8A1F000A2C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE735E8200C8A1F000A2C73 /* AppDelegate.m */; };
+		CDE735F1200C8C50000A2C73 /* PayController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDE735EF200C8C50000A2C73 /* PayController.mm */; };
+		CDE735F5200C8CBE000A2C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE735F4200C8CBE000A2C73 /* AppDelegate.m */; };
 		CDF2BADC1FFDD8520004D98C /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = CDF2BADB1FFDD8520004D98C /* ScreenShot.png */; };
 		D8A14878A02CB8B838075199 /* libPods-XLsn0wPayManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */; };
 /* End PBXBuildFile section */
@@ -178,9 +178,9 @@
 		CD9E3B701FFCCA58008CA533 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
 		CD9E3B711FFCCA58008CA533 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
 		CD9E3B731FFCCA58008CA533 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
-		CDE735E3200C8936000A2C73 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
-		CDE735E4200C8936000A2C73 /* PayViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayViewController.mm; sourceTree = "<group>"; };
-		CDE735E8200C8A1F000A2C73 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CDE735EF200C8C50000A2C73 /* PayController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayController.mm; sourceTree = "<group>"; };
+		CDE735F0200C8C50000A2C73 /* PayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayController.h; sourceTree = "<group>"; };
+		CDE735F4200C8CBE000A2C73 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CDF2BADB1FFDD8520004D98C /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
 		D1A5397E901C8228647CAC25 /* libPods-XLsn0wPayManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLsn0wPayManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E239CA9371D8BDD9C2FA9749 /* Pods-XLsn0wPayManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLsn0wPayManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLsn0wPayManager/Pods-XLsn0wPayManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -267,9 +267,9 @@
 			isa = PBXGroup;
 			children = (
 				355DD0D11EA99A0800B5B240 /* AppDelegate.h */,
-				CDE735E8200C8A1F000A2C73 /* AppDelegate.m */,
+				CDE735F4200C8CBE000A2C73 /* AppDelegate.m */,
 				355DD1521EA99CD400B5B240 /* PrefixHeader.pch */,
-				CDE735E7200C89D9000A2C73 /* PayViewController */,
+				CDE735E7200C89D9000A2C73 /* PayController */,
 				CDE735E6200C89C8000A2C73 /* QRCodeImager */,
 				351B26391EB097D0001DE80D /* XLsn0wPay */,
 				355DD0D71EA99A0900B5B240 /* Main.storyboard */,
@@ -468,13 +468,13 @@
 			name = QRCodeImager;
 			sourceTree = "<group>";
 		};
-		CDE735E7200C89D9000A2C73 /* PayViewController */ = {
+		CDE735E7200C89D9000A2C73 /* PayController */ = {
 			isa = PBXGroup;
 			children = (
-				CDE735E3200C8936000A2C73 /* PayViewController.h */,
-				CDE735E4200C8936000A2C73 /* PayViewController.mm */,
+				CDE735F0200C8C50000A2C73 /* PayController.h */,
+				CDE735EF200C8C50000A2C73 /* PayController.mm */,
 			);
-			name = PayViewController;
+			name = PayController;
 			sourceTree = "<group>";
 		};
 		DCAE96312BE93B2457A07A6A /* Pods */ = {
@@ -616,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE735F5200C8CBE000A2C73 /* AppDelegate.m in Sources */,
 				355DD1511EA99CB800B5B240 /* RSADataVerifier.m in Sources */,
 				355DD14F1EA99CB800B5B240 /* openssl_wrapper.m in Sources */,
 				35478DF91EB2EF100004EBF0 /* XLsn0wPay.m in Sources */,
@@ -623,11 +624,10 @@
 				355DD1491EA99CB800B5B240 /* APAuthV2Info.m in Sources */,
 				3091C0081FB15CE7005AB0BB /* QRCodeImager.m in Sources */,
 				355DD14E1EA99CB800B5B240 /* NSDataEx.m in Sources */,
-				CDE735E5200C8936000A2C73 /* PayViewController.mm in Sources */,
-				CDE735E9200C8A1F000A2C73 /* AppDelegate.m in Sources */,
 				355DD14C1EA99CB800B5B240 /* Order.m in Sources */,
 				355DD1501EA99CB800B5B240 /* RSADataSigner.m in Sources */,
 				355DD0D01EA99A0800B5B240 /* main.m in Sources */,
+				CDE735F1200C8C50000A2C73 /* PayController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
