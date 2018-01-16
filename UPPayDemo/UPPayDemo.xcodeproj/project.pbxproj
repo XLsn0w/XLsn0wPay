@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D44EB291C1926070088C777 /* public_test.key in Resources */ = {isa = PBXBuildFile; fileRef = 2D44EB261C1926070088C777 /* public_test.key */; };
+		2D44EB2A1C1926070088C777 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D44EB281C1926070088C777 /* RSA.m */; };
+		2D647C291BFD9CE6001CF30D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D647C281BFD9CE6001CF30D /* main.m */; };
+		2D647C2C1BFD9CE6001CF30D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D647C2B1BFD9CE6001CF30D /* AppDelegate.m */; };
+		2D647C2F1BFD9CE6001CF30D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D647C2E1BFD9CE6001CF30D /* ViewController.mm */; };
+		2D647C321BFD9CE6001CF30D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D647C301BFD9CE6001CF30D /* Main.storyboard */; };
+		2D647C341BFD9CE6001CF30D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D647C331BFD9CE6001CF30D /* Assets.xcassets */; };
+		2D647C371BFD9CE6001CF30D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D647C351BFD9CE6001CF30D /* LaunchScreen.storyboard */; };
+		2D647C631BFD9DE9001CF30D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D647C621BFD9DE9001CF30D /* SystemConfiguration.framework */; };
+		2D647C651BFD9E18001CF30D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D647C641BFD9E18001CF30D /* libz.tbd */; };
+		2D647C661BFD9E38001CF30D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D647C5E1BFD9DC5001CF30D /* CFNetwork.framework */; };
+		2D884BF61C1FEBE900352413 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D884BF51C1FEBE900352413 /* LocalAuthentication.framework */; };
+		2DC5706E1C2A320700C315D5 /* public_product.key in Resources */ = {isa = PBXBuildFile; fileRef = 2DC5706D1C2A320700C315D5 /* public_product.key */; };
+		CD9E3B6C1FFCC5DD008CA533 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9E3B6B1FFCC5DD008CA533 /* libPaymentControl.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D44EB261C1926070088C777 /* public_test.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public_test.key; sourceTree = "<group>"; };
+		2D44EB271C1926070088C777 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		2D44EB281C1926070088C777 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		2D647C241BFD9CE6001CF30D /* UPPayDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UPPayDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D647C281BFD9CE6001CF30D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2D647C2A1BFD9CE6001CF30D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2D647C2B1BFD9CE6001CF30D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2D647C2D1BFD9CE6001CF30D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2D647C2E1BFD9CE6001CF30D /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		2D647C311BFD9CE6001CF30D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D647C331BFD9CE6001CF30D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D647C361BFD9CE6001CF30D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D647C381BFD9CE6001CF30D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D647C5E1BFD9DC5001CF30D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2D647C601BFD9DDA001CF30D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D647C621BFD9DE9001CF30D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2D647C641BFD9E18001CF30D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2D884BF51C1FEBE900352413 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		2DC5706D1C2A320700C315D5 /* public_product.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public_product.key; sourceTree = "<group>"; };
+		CD9E3B671FFCC5DC008CA533 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		CD9E3B681FFCC5DC008CA533 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
+		CD9E3B691FFCC5DD008CA533 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
+		CD9E3B6B1FFCC5DD008CA533 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D647C211BFD9CE6001CF30D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D884BF61C1FEBE900352413 /* LocalAuthentication.framework in Frameworks */,
+				CD9E3B6C1FFCC5DD008CA533 /* libPaymentControl.a in Frameworks */,
+				2D647C661BFD9E38001CF30D /* CFNetwork.framework in Frameworks */,
+				2D647C651BFD9E18001CF30D /* libz.tbd in Frameworks */,
+				2D647C631BFD9DE9001CF30D /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D647C1B1BFD9CE6001CF30D = {
+			isa = PBXGroup;
+			children = (
+				2D884BF51C1FEBE900352413 /* LocalAuthentication.framework */,
+				2D647C641BFD9E18001CF30D /* libz.tbd */,
+				2D647C621BFD9DE9001CF30D /* SystemConfiguration.framework */,
+				2D647C601BFD9DDA001CF30D /* CoreGraphics.framework */,
+				2D647C5E1BFD9DC5001CF30D /* CFNetwork.framework */,
+				2D647C261BFD9CE6001CF30D /* UPPayDemo */,
+				2D647C251BFD9CE6001CF30D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D647C251BFD9CE6001CF30D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D647C241BFD9CE6001CF30D /* UPPayDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D647C261BFD9CE6001CF30D /* UPPayDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2D44EB261C1926070088C777 /* public_test.key */,
+				2DC5706D1C2A320700C315D5 /* public_product.key */,
+				2D44EB271C1926070088C777 /* RSA.h */,
+				2D44EB281C1926070088C777 /* RSA.m */,
+				CD9E3B651FFCC5DC008CA533 /* paymentcontrol */,
+				2D647C2A1BFD9CE6001CF30D /* AppDelegate.h */,
+				2D647C2B1BFD9CE6001CF30D /* AppDelegate.m */,
+				2D647C2D1BFD9CE6001CF30D /* ViewController.h */,
+				2D647C2E1BFD9CE6001CF30D /* ViewController.mm */,
+				2D647C301BFD9CE6001CF30D /* Main.storyboard */,
+				2D647C331BFD9CE6001CF30D /* Assets.xcassets */,
+				2D647C351BFD9CE6001CF30D /* LaunchScreen.storyboard */,
+				2D647C381BFD9CE6001CF30D /* Info.plist */,
+				2D647C271BFD9CE6001CF30D /* Supporting Files */,
+			);
+			path = UPPayDemo;
+			sourceTree = "<group>";
+		};
+		2D647C271BFD9CE6001CF30D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D647C281BFD9CE6001CF30D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD9E3B651FFCC5DC008CA533 /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E3B661FFCC5DC008CA533 /* inc */,
+				CD9E3B6A1FFCC5DD008CA533 /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		CD9E3B661FFCC5DC008CA533 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E3B671FFCC5DC008CA533 /* UPPaymentControl.h */,
+				CD9E3B681FFCC5DC008CA533 /* UPAPayPlugin.h */,
+				CD9E3B691FFCC5DD008CA533 /* UPAPayPluginDelegate.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		CD9E3B6A1FFCC5DD008CA533 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E3B6B1FFCC5DD008CA533 /* libPaymentControl.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D647C231BFD9CE6001CF30D /* UPPayDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D647C511BFD9CE6001CF30D /* Build configuration list for PBXNativeTarget "UPPayDemo" */;
+			buildPhases = (
+				2D647C201BFD9CE6001CF30D /* Sources */,
+				2D647C211BFD9CE6001CF30D /* Frameworks */,
+				2D647C221BFD9CE6001CF30D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UPPayDemo;
+			productName = UPPayDemo;
+			productReference = 2D647C241BFD9CE6001CF30D /* UPPayDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D647C1C1BFD9CE6001CF30D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = UnionPay;
+				TargetAttributes = {
+					2D647C231BFD9CE6001CF30D = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = MS6RTU94VW;
+					};
+				};
+			};
+			buildConfigurationList = 2D647C1F1BFD9CE6001CF30D /* Build configuration list for PBXProject "UPPayDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D647C1B1BFD9CE6001CF30D;
+			productRefGroup = 2D647C251BFD9CE6001CF30D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D647C231BFD9CE6001CF30D /* UPPayDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D647C221BFD9CE6001CF30D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D44EB291C1926070088C777 /* public_test.key in Resources */,
+				2D647C371BFD9CE6001CF30D /* LaunchScreen.storyboard in Resources */,
+				2DC5706E1C2A320700C315D5 /* public_product.key in Resources */,
+				2D647C341BFD9CE6001CF30D /* Assets.xcassets in Resources */,
+				2D647C321BFD9CE6001CF30D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D647C201BFD9CE6001CF30D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D647C2F1BFD9CE6001CF30D /* ViewController.mm in Sources */,
+				2D647C2C1BFD9CE6001CF30D /* AppDelegate.m in Sources */,
+				2D44EB2A1C1926070088C777 /* RSA.m in Sources */,
+				2D647C291BFD9CE6001CF30D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2D647C301BFD9CE6001CF30D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D647C311BFD9CE6001CF30D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2D647C351BFD9CE6001CF30D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D647C361BFD9CE6001CF30D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D647C4F1BFD9CE6001CF30D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2D647C501BFD9CE6001CF30D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D647C521BFD9CE6001CF30D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = MS6RTU94VW;
+				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = UPPayDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UPPayDemo/UPPaymentControl",
+					"$(PROJECT_DIR)/UPPayDemo/openssl",
+					"$(PROJECT_DIR)/UPPayDemo",
+					"$(PROJECT_DIR)/UPPayDemo/paymentcontrol/libs",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xlsn0w.xlsn0w;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		2D647C531BFD9CE6001CF30D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = MS6RTU94VW;
+				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = UPPayDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UPPayDemo/UPPaymentControl",
+					"$(PROJECT_DIR)/UPPayDemo/openssl",
+					"$(PROJECT_DIR)/UPPayDemo",
+					"$(PROJECT_DIR)/UPPayDemo/paymentcontrol/libs",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xlsn0w.xlsn0w;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D647C1F1BFD9CE6001CF30D /* Build configuration list for PBXProject "UPPayDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D647C4F1BFD9CE6001CF30D /* Debug */,
+				2D647C501BFD9CE6001CF30D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D647C511BFD9CE6001CF30D /* Build configuration list for PBXNativeTarget "UPPayDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D647C521BFD9CE6001CF30D /* Debug */,
+				2D647C531BFD9CE6001CF30D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D647C1C1BFD9CE6001CF30D /* Project object */;
+}
